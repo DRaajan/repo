@@ -1,11 +1,867 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Health Examination Tests & Normal Ranges</title>
+<style>
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
+h1 { margin: 0 0 12px; font-size: 1.6rem; }
+.note { font-size: 0.95rem; margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+th { position: sticky; top: 0; background: #f7f7f7; }
+tr:nth-child(even) td { background: #fafafa; }
+code { background:#f3f3f3; padding:2px 4px; border-radius:4px; }
+.small { font-size: 0.9rem; }
+.container { overflow:auto; max-height: 78vh; border:1px solid #eee; }
+</style>
 </head>
 <body>
-   <h1>Hello, World!</h1>
+<h1>Master Health Examination Tests &amp; Normal Ranges</h1>
+<p class="note">Reference ranges are for <strong>non-pregnant adults</strong> and can vary by lab, age, sex, and assay. Always interpret in clinical context.</p>
+<div class="container">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Category</th>
+      <th>Test Name</th>
+      <th>Purpose</th>
+      <th>Normal Range (Adults)</th>
+      <th>Units/Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Vitals & Basic Exam</td>
+      <td>Blood Pressure</td>
+      <td>Cardiovascular status</td>
+      <td>Systolic 90–120 / Diastolic 60–80</td>
+      <td>mmHg, adult resting</td>
+    </tr>
+    <tr>
+      <td>Vitals & Basic Exam</td>
+      <td>Heart Rate</td>
+      <td>Cardiac rhythm</td>
+      <td>60–100</td>
+      <td>beats/min, resting adult</td>
+    </tr>
+    <tr>
+      <td>Vitals & Basic Exam</td>
+      <td>Respiratory Rate</td>
+      <td>Ventilation</td>
+      <td>12–20</td>
+      <td>breaths/min, resting adult</td>
+    </tr>
+    <tr>
+      <td>Vitals & Basic Exam</td>
+      <td>Temperature</td>
+      <td>Core body temp</td>
+      <td>36.1–37.2</td>
+      <td>°C (oral)</td>
+    </tr>
+    <tr>
+      <td>Vitals & Basic Exam</td>
+      <td>Oxygen Saturation (SpO₂)</td>
+      <td>Oxygenation</td>
+      <td>≥95%</td>
+      <td>Room air at sea level</td>
+    </tr>
+    <tr>
+      <td>Vitals & Basic Exam</td>
+      <td>BMI</td>
+      <td>Nutritional status</td>
+      <td>18.5–24.9</td>
+      <td>kg/m²</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Hemoglobin (Hb)</td>
+      <td>Anemia/polycythemia</td>
+      <td>Men: 13.8–17.2; Women: 12.1–15.1</td>
+      <td>g/dL</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Hematocrit (Hct)</td>
+      <td>Anemia/polycythemia</td>
+      <td>Men: 40–52; Women: 36–48</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>RBC Count</td>
+      <td>Erythrocyte status</td>
+      <td>Men: 4.7–6.1; Women: 4.2–5.4</td>
+      <td>million/µL</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>MCV</td>
+      <td>RBC size</td>
+      <td>80–100</td>
+      <td>fL</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>MCH</td>
+      <td>Hb content/RBC</td>
+      <td>27–33</td>
+      <td>pg</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>MCHC</td>
+      <td>Hb concentration</td>
+      <td>32–36</td>
+      <td>g/dL</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>RDW</td>
+      <td>RBC size variation</td>
+      <td>11.5–14.5</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>WBC Count (Total)</td>
+      <td>Infection/inflammation</td>
+      <td>4,000–11,000</td>
+      <td>cells/µL</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Neutrophils (absolute)</td>
+      <td>Bacterial infection</td>
+      <td>1.5–7.5</td>
+      <td>×10⁹/L</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Lymphocytes (absolute)</td>
+      <td>Viral/immune status</td>
+      <td>1.0–3.5</td>
+      <td>×10⁹/L</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Monocytes (absolute)</td>
+      <td>Inflammation</td>
+      <td>0.2–0.8</td>
+      <td>×10⁹/L</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Eosinophils (absolute)</td>
+      <td>Allergy/parasites</td>
+      <td>0.0–0.5</td>
+      <td>×10⁹/L</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Basophils (absolute)</td>
+      <td>Allergy</td>
+      <td>0.0–0.2</td>
+      <td>×10⁹/L</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>Platelet Count</td>
+      <td>Bleeding/clotting</td>
+      <td>150–450</td>
+      <td>×10³/µL</td>
+    </tr>
+    <tr>
+      <td>CBC</td>
+      <td>ESR</td>
+      <td>Inflammation</td>
+      <td>Men: 0–15; Women: 0–20</td>
+      <td>mm/hr (Westergren)</td>
+    </tr>
+    <tr>
+      <td>Coagulation</td>
+      <td>Prothrombin Time (PT)</td>
+      <td>Extrinsic pathway</td>
+      <td>~11–13.5</td>
+      <td>sec (reagent-dependent)</td>
+    </tr>
+    <tr>
+      <td>Coagulation</td>
+      <td>INR</td>
+      <td>Warfarin monitoring</td>
+      <td>0.8–1.2</td>
+      <td>unitless (therapeutic ranges vary)</td>
+    </tr>
+    <tr>
+      <td>Coagulation</td>
+      <td>aPTT</td>
+      <td>Intrinsic pathway</td>
+      <td>25–35</td>
+      <td>sec</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Fasting Plasma Glucose (FPG)</td>
+      <td>Diabetes screening</td>
+      <td>70–99</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Post‑prandial Glucose (2‑hr)</td>
+      <td>Glycemic control</td>
+      <td><140</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>HbA1c</td>
+      <td>Average 3‑mo glycemia</td>
+      <td><5.7</td>
+      <td>% (non‑diabetic)</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Sodium (Na⁺)</td>
+      <td>Electrolyte balance</td>
+      <td>135–145</td>
+      <td>mmol/L</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Potassium (K⁺)</td>
+      <td>Cardiac/neuromuscular</td>
+      <td>3.5–5.1</td>
+      <td>mmol/L</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Chloride (Cl⁻)</td>
+      <td>Acid‑base</td>
+      <td>98–106</td>
+      <td>mmol/L</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Bicarbonate (HCO₃⁻ / CO₂)</td>
+      <td>Acid‑base</td>
+      <td>22–29</td>
+      <td>mmol/L</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Calcium (total)</td>
+      <td>Bone/neuromuscular</td>
+      <td>8.6–10.2</td>
+      <td>mg/dL (albumin‑adjust)</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Ionized Calcium</td>
+      <td>Active Ca²⁺</td>
+      <td>1.12–1.32</td>
+      <td>mmol/L</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Magnesium</td>
+      <td>Neuromuscular</td>
+      <td>1.7–2.2</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Phosphorus</td>
+      <td>Bone/renal</td>
+      <td>2.5–4.5</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Metabolic & Electrolytes</td>
+      <td>Uric Acid</td>
+      <td>Gout/metabolic</td>
+      <td>Men: 3.4–7.0; Women: 2.4–6.0</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Renal Function</td>
+      <td>Blood Urea Nitrogen (BUN)</td>
+      <td>Renal function</td>
+      <td>7–20</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Renal Function</td>
+      <td>Serum Creatinine</td>
+      <td>Renal function</td>
+      <td>Men: 0.74–1.35; Women: 0.59–1.04</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Renal Function</td>
+      <td>eGFR (CKD‑EPI)</td>
+      <td>Glomerular filtration</td>
+      <td>>=90 (normal)</td>
+      <td>mL/min/1.73 m²</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>Total Bilirubin</td>
+      <td>Hepatic/excretory</td>
+      <td>0.1–1.2</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>Direct (Conjugated) Bilirubin</td>
+      <td>Cholestasis</td>
+      <td>0.0–0.3</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>AST (SGOT)</td>
+      <td>Hepatocellular injury</td>
+      <td>10–40</td>
+      <td>U/L</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>ALT (SGPT)</td>
+      <td>Hepatocellular injury</td>
+      <td>7–56</td>
+      <td>U/L</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>Alkaline Phosphatase (ALP)</td>
+      <td>Cholestasis/bone</td>
+      <td>44–147</td>
+      <td>U/L (lab‑specific)</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>Gamma‑GT (GGT)</td>
+      <td>Cholestasis/alcohol</td>
+      <td>9–48</td>
+      <td>U/L</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>Total Protein</td>
+      <td>Synthetic function</td>
+      <td>6.0–8.3</td>
+      <td>g/dL</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>Albumin</td>
+      <td>Synthetic/oncotic</td>
+      <td>3.5–5.0</td>
+      <td>g/dL</td>
+    </tr>
+    <tr>
+      <td>Liver Function</td>
+      <td>A/G Ratio</td>
+      <td>Albumin‑globulin balance</td>
+      <td>1.0–2.2</td>
+      <td>ratio</td>
+    </tr>
+    <tr>
+      <td>Lipid Panel</td>
+      <td>Total Cholesterol</td>
+      <td>ASCVD risk</td>
+      <td><200</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Lipid Panel</td>
+      <td>LDL‑C (calculated)</td>
+      <td>Atherogenic risk</td>
+      <td><100 (optimal)</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Lipid Panel</td>
+      <td>HDL‑C</td>
+      <td>Protective lipoprotein</td>
+      <td>Men: ≥40; Women: ≥50</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Lipid Panel</td>
+      <td>Triglycerides</td>
+      <td>Atherogenic risk</td>
+      <td><150</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Lipid Panel</td>
+      <td>Non‑HDL‑C</td>
+      <td>ASCVD risk</td>
+      <td><130</td>
+      <td>mg/dL</td>
+    </tr>
+    <tr>
+      <td>Thyroid</td>
+      <td>TSH</td>
+      <td>Primary screen</td>
+      <td>0.4–4.0</td>
+      <td>mIU/L (lab varies)</td>
+    </tr>
+    <tr>
+      <td>Thyroid</td>
+      <td>Free T4 (FT4)</td>
+      <td>Thyroxine level</td>
+      <td>0.8–1.8</td>
+      <td>ng/dL</td>
+    </tr>
+    <tr>
+      <td>Thyroid</td>
+      <td>Free T3 (FT3)</td>
+      <td>Triiodothyronine</td>
+      <td>2.3–4.2</td>
+      <td>pg/mL</td>
+    </tr>
+    <tr>
+      <td>Thyroid</td>
+      <td>Anti‑TPO Antibody</td>
+      <td>Autoimmune thyroiditis</td>
+      <td><35</td>
+      <td>IU/mL (lab varies)</td>
+    </tr>
+    <tr>
+      <td>Iron Studies</td>
+      <td>Serum Iron</td>
+      <td>Iron status</td>
+      <td>60–170</td>
+      <td>µg/dL</td>
+    </tr>
+    <tr>
+      <td>Iron Studies</td>
+      <td>TIBC</td>
+      <td>Binding capacity</td>
+      <td>240–450</td>
+      <td>µg/dL</td>
+    </tr>
+    <tr>
+      <td>Iron Studies</td>
+      <td>Transferrin Saturation</td>
+      <td>Iron availability</td>
+      <td>20–50</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <td>Iron Studies</td>
+      <td>Ferritin</td>
+      <td>Iron stores</td>
+      <td>Men: 24–336; Women: 11–307</td>
+      <td>ng/mL</td>
+    </tr>
+    <tr>
+      <td>Hematinics</td>
+      <td>Vitamin B12</td>
+      <td>Cobalamin status</td>
+      <td>200–900</td>
+      <td>pg/mL</td>
+    </tr>
+    <tr>
+      <td>Hematinics</td>
+      <td>Folate (serum)</td>
+      <td>Folate status</td>
+      <td>>3</td>
+      <td>ng/mL</td>
+    </tr>
+    <tr>
+      <td>Inflammation</td>
+      <td>C‑Reactive Protein (CRP)</td>
+      <td>Systemic inflammation</td>
+      <td><5</td>
+      <td>mg/L (high‑sensitivity: <1 low risk)</td>
+    </tr>
+    <tr>
+      <td>Autoimmune</td>
+      <td>ANA (screen)</td>
+      <td>Autoimmune screen</td>
+      <td>Negative</td>
+      <td>Titer <1:80 typically</td>
+    </tr>
+    <tr>
+      <td>Autoimmune</td>
+      <td>Rheumatoid Factor (RF)</td>
+      <td>RA evaluation</td>
+      <td><14</td>
+      <td>IU/mL</td>
+    </tr>
+    <tr>
+      <td>Autoimmune</td>
+      <td>Anti‑CCP Antibody</td>
+      <td>RA specificity</td>
+      <td><20</td>
+      <td>U/mL</td>
+    </tr>
+    <tr>
+      <td>Cardiac</td>
+      <td>High‑sensitivity Troponin I/T</td>
+      <td>Myocardial injury</td>
+      <td>Below 99th percentile URL</td>
+      <td>ng/L (assay‑specific)</td>
+    </tr>
+    <tr>
+      <td>Cardiac</td>
+      <td>CK‑MB</td>
+      <td>Myocardial injury</td>
+      <td><6</td>
+      <td>ng/mL (lab‑specific)</td>
+    </tr>
+    <tr>
+      <td>Cardiac</td>
+      <td>BNP / NT‑proBNP</td>
+      <td>Heart failure</td>
+      <td>Age/sex‑specific</td>
+      <td>pg/mL (refer to assay)</td>
+    </tr>
+    <tr>
+      <td>Pancreatic/GI</td>
+      <td>Amylase</td>
+      <td>Pancreatitis</td>
+      <td>30–110</td>
+      <td>U/L</td>
+    </tr>
+    <tr>
+      <td>Pancreatic/GI</td>
+      <td>Lipase</td>
+      <td>Pancreatitis</td>
+      <td>10–140</td>
+      <td>U/L</td>
+    </tr>
+    <tr>
+      <td>Pancreatic/GI</td>
+      <td>Serum Albumin/Globulin Ratio</td>
+      <td>Nutritional/liver</td>
+      <td>1.0–2.2</td>
+      <td>ratio</td>
+    </tr>
+    <tr>
+      <td>GI</td>
+      <td>H. pylori Antigen (stool)</td>
+      <td>H. pylori detection</td>
+      <td>Negative</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Vitamins</td>
+      <td>25‑OH Vitamin D</td>
+      <td>Bone/immune</td>
+      <td>30–100 (sufficient)</td>
+      <td>ng/mL</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>Testosterone (total)</td>
+      <td>Androgen status</td>
+      <td>Men: 300–1000; Women: 15–70</td>
+      <td>ng/dL (morning)</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>Prolactin</td>
+      <td>Pituitary function</td>
+      <td>Men: 2–18; Women: 2–29</td>
+      <td>ng/mL</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>FSH</td>
+      <td>Gonadal axis</td>
+      <td>Men: 1.5–12.4; Women (follicular): 3.5–12.5</td>
+      <td>mIU/mL</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>LH</td>
+      <td>Gonadal axis</td>
+      <td>Men: 1.7–8.6; Women (follicular): 2.4–12.6</td>
+      <td>mIU/mL</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>Estradiol (E2)</td>
+      <td>Ovarian function</td>
+      <td>Varies by cycle phase</td>
+      <td>pg/mL</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>Progesterone</td>
+      <td>Luteal function</td>
+      <td>Varies by cycle phase</td>
+      <td>ng/mL</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>DHEA‑S</td>
+      <td>Adrenal androgen</td>
+      <td>Women: 35–430; Men: 80–560</td>
+      <td>µg/dL (age‑dependent)</td>
+    </tr>
+    <tr>
+      <td>Hormones</td>
+      <td>Cortisol (AM)</td>
+      <td>Adrenal function</td>
+      <td>6–18</td>
+      <td>µg/dL (8–9 AM)</td>
+    </tr>
+    <tr>
+      <td>Tumor Markers</td>
+      <td>PSA (total)</td>
+      <td>Prostate screening/monitoring</td>
+      <td><4.0</td>
+      <td>ng/mL (age‑adjusted)</td>
+    </tr>
+    <tr>
+      <td>Tumor Markers</td>
+      <td>CA‑125</td>
+      <td>Ovarian tumor marker</td>
+      <td><35</td>
+      <td>U/mL</td>
+    </tr>
+    <tr>
+      <td>Tumor Markers</td>
+      <td>CEA</td>
+      <td>GI tumor marker</td>
+      <td><3 (non‑smoker); <5 (smoker)</td>
+      <td>ng/mL</td>
+    </tr>
+    <tr>
+      <td>Tumor Markers</td>
+      <td>AFP</td>
+      <td>Hepatocellular/germ cell</td>
+      <td><10</td>
+      <td>ng/mL</td>
+    </tr>
+    <tr>
+      <td>Infectious Disease</td>
+      <td>HBsAg</td>
+      <td>Hepatitis B surface antigen</td>
+      <td>Negative</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Infectious Disease</td>
+      <td>Anti‑HBs</td>
+      <td>Immunity to HBV</td>
+      <td>>10</td>
+      <td>mIU/mL (protective)</td>
+    </tr>
+    <tr>
+      <td>Infectious Disease</td>
+      <td>Anti‑HCV</td>
+      <td>Hepatitis C antibody</td>
+      <td>Negative</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Infectious Disease</td>
+      <td>HIV 1/2 Ag/Ab (4th gen)</td>
+      <td>HIV screen</td>
+      <td>Negative</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Infectious Disease</td>
+      <td>VDRL/RPR</td>
+      <td>Syphilis screen</td>
+      <td>Non‑reactive</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Infectious Disease</td>
+      <td>TB (IGRA/Quantiferon)</td>
+      <td>Latent TB</td>
+      <td>Negative</td>
+      <td>Assay‑specific</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Color/Appearance</td>
+      <td>Hydration/infection</td>
+      <td>Pale yellow/clear</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Specific Gravity</td>
+      <td>Concentration</td>
+      <td>1.005–1.030</td>
+      <td>unitless</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>pH</td>
+      <td>Acid‑base</td>
+      <td>4.5–8.0</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Protein</td>
+      <td>Kidney disease</td>
+      <td>Negative</td>
+      <td>Dipstick</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Glucose</td>
+      <td>Glycosuria</td>
+      <td>Negative</td>
+      <td>Dipstick</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Ketones</td>
+      <td>DKA/fasting</td>
+      <td>Negative</td>
+      <td>Dipstick</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Bilirubin/Urobilinogen</td>
+      <td>Liver disease</td>
+      <td>Negative / 0.1–1.0</td>
+      <td>EU/dL</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Nitrite/Leukocyte Esterase</td>
+      <td>UTI screen</td>
+      <td>Negative</td>
+      <td>Dipstick</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Microscopy: RBC</td>
+      <td>Hematuria</td>
+      <td>0–2</td>
+      <td>per HPF</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Microscopy: WBC</td>
+      <td>Inflammation/UTI</td>
+      <td>0–5</td>
+      <td>per HPF</td>
+    </tr>
+    <tr>
+      <td>Urinalysis</td>
+      <td>Microalbumin (ACR)</td>
+      <td>Early nephropathy</td>
+      <td><30</td>
+      <td>mg/g creatinine</td>
+    </tr>
+    <tr>
+      <td>Stool</td>
+      <td>Occult Blood (FOBT/FIT)</td>
+      <td>GI bleeding</td>
+      <td>Negative</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Stool</td>
+      <td>Ova & Parasites</td>
+      <td>Parasitic infection</td>
+      <td>None seen</td>
+      <td>Qualitative</td>
+    </tr>
+    <tr>
+      <td>Pulmonary</td>
+      <td>Spirometry: FEV₁</td>
+      <td>Airway function</td>
+      <td>>80% predicted</td>
+      <td>% (age/ht/sex adj)</td>
+    </tr>
+    <tr>
+      <td>Pulmonary</td>
+      <td>Spirometry: FVC</td>
+      <td>Lung volume</td>
+      <td>>80% predicted</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <td>Pulmonary</td>
+      <td>FEV₁/FVC Ratio</td>
+      <td>Obstruction screen</td>
+      <td>>=0.70 (adults)</td>
+      <td>unitless</td>
+    </tr>
+    <tr>
+      <td>Imaging</td>
+      <td>Chest X‑ray</td>
+      <td>Lung/heart screening</td>
+      <td>No acute abnormality</td>
+      <td>Descriptive report</td>
+    </tr>
+    <tr>
+      <td>Imaging</td>
+      <td>Ultrasound Abdomen</td>
+      <td>Organs screening</td>
+      <td>No focal lesion/stone</td>
+      <td>Descriptive report</td>
+    </tr>
+    <tr>
+      <td>Imaging</td>
+      <td>Mammogram (women)</td>
+      <td>Breast screening</td>
+      <td>BI‑RADS 1–2 (normal/benign)</td>
+      <td>Age‑based</td>
+    </tr>
+    <tr>
+      <td>Imaging</td>
+      <td>DEXA (BMD)</td>
+      <td>Osteoporosis screen</td>
+      <td>T‑score ≥ −1.0 (normal)</td>
+      <td>WHO criteria</td>
+    </tr>
+    <tr>
+      <td>Imaging</td>
+      <td>CT Coronary Calcium</td>
+      <td>Atherosclerosis</td>
+      <td>Agatston 0 (low risk)</td>
+      <td>Age‑adjusted risk</td>
+    </tr>
+    <tr>
+      <td>Allergy</td>
+      <td>Total IgE</td>
+      <td>Atopy/allergy</td>
+      <td><100–150</td>
+      <td>IU/mL (age‑dependent)</td>
+    </tr>
+    <tr>
+      <td>Allergy</td>
+      <td>Specific IgE (RAST)</td>
+      <td>Allergen sensitization</td>
+      <td>Class 0</td>
+      <td>Qualitative/quantitative</td>
+    </tr>
+    <tr>
+      <td>Nutrition</td>
+      <td>Serum Zinc</td>
+      <td>Micronutrient</td>
+      <td>60–120</td>
+      <td>µg/dL</td>
+    </tr>
+    <tr>
+      <td>Nutrition</td>
+      <td>Serum Copper</td>
+      <td>Micronutrient</td>
+      <td>70–140</td>
+      <td>µg/dL</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="small">Tip: You can embed this table directly into any webpage or import the data into your LIS/EMR. Columns: Category, Test Name, Purpose, Normal Range (Adults), Units/Notes.</p>
 </body>
 </html>
