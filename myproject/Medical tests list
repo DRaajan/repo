@@ -1,0 +1,82 @@
+# Add sex-specific and pediatric ranges to the DataFrame
+
+# We'll expand "Normal Range (Adults)" into three columns: Male Adult, Female Adult, Pediatric.
+# We'll attempt to split based on keywords where we have explicit male/female values already.
+# For others, we'll copy the adult normal range into both.
+
+male_range = []
+female_range = []
+pediatric_range = []
+
+for _, row in df.iterrows():
+    normal = row["Normal Range (Adults)"]
+    notes = row["Units/Notes"]
+    # Default: same value for both male and female
+    male_val = normal
+    female_val = normal
+    ped_val = "Varies by age (lab-specific)"
+
+    # If normal contains "Men:" and "Women:" split
+    if "Men:" in normal and "Women:" in normal:
+        try:
+            parts = normal.split(";")
+            m_part = next((p.strip().replace("Men:", "").strip() for p in parts if p.strip().startswith("Men:")), "")
+            f_part = next((p.strip().replace("Women:", "").strip() for p in parts if p.strip().startswith("Women:")), "")
+            male_val = m_part
+            female_val = f_part
+        except Exception:
+            pass
+
+    male_range.append(male_val)
+    female_range.append(female_val)
+    pediatric_range.append(ped_val)
+
+df_expanded = pd.DataFrame({
+    "Category": df["Category"],
+    "Test Name": df["Test Name"],
+    "Purpose": df["Purpose"],
+    "Male Adult Range": male_range,
+    "Female Adult Range": female_range,
+    "Pediatric Range": pediatric_range,
+    "Units/Notes": df["Units/Notes"]
+})
+
+# Convert to HTML
+table_html_expanded = df_expanded.to_html(index=False, escape=False)
+
+html_template_expanded = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Health Examination Tests & Normal Ranges (Sex & Age Specific)</title>
+<style>
+body {{ font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }}
+h1 {{ margin: 0 0 12px; font-size: 1.6rem; }}
+.note {{ font-size: 0.95rem; margin-bottom: 16px; }}
+table {{ width: 100%; border-collapse: collapse; font-size: 0.9rem; }}
+th, td {{ border: 1px solid #ddd; padding: 8px; vertical-align: top; }}
+th {{ position: sticky; top: 0; background: #f7f7f7; }}
+tr:nth-child(even) td {{ background: #fafafa; }}
+code {{ background:#f3f3f3; padding:2px 4px; border-radius:4px; }}
+.small {{ font-size: 0.85rem; }}
+.container {{ overflow:auto; max-height: 78vh; border:1px solid #eee; }}
+</style>
+</head>
+<body>
+<h1>Master Health Examination Tests &amp; Normal Ranges (Male, Female, Pediatric)</h1>
+<p class="note">Reference ranges are for <strong>non-pregnant adults</strong> and may vary by lab. Pediatric values are generalized — consult age-specific pediatric charts for accuracy.</p>
+<div class="container">
+{table_html_expanded}
+</div>
+<p class="small">Tip: You can embed this table directly into any webpage or EMR interface.</p>
+</body>
+</html>
+"""
+
+path_expanded = "/mnt/data/master_health_tests_with_ranges_by_sex_age.html"
+with open(path_expanded, "w", encoding="utf-8") as f:
+    f.write(dedent(html_template_expanded))
+
+path_expanded
